@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <title>DogeVanguard</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #000000;
+      color: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: #00FF7F;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 2px solid #00FF7F;
+      position: relative;
+    }
+
+    .header-left {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00FF7F;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-right img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .header-middle {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100%;
+      text-align: center;
+    }
+
+    .header-middle span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scrollText 10s linear infinite;
+    }
+
+    @keyframes scrollText {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 20vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #000000, #003300);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin: 0;
+      color: #00FF7F;
+      text-shadow: 0 0 10px 0 0 20px #00FF7F;
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 50%;
+      background: radial-gradient(circle, transparent 20%, #000000 70%);
+      animation: parallax 10s linear infinite;
+    }
+
+    @keyframes parallax {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* About Section */
+    .about {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: #000000;
+      border-top: 2px solid #00FF7F;
+      border-bottom: 2px solid #00FF7F;
+    }
+
+    .about h2 {
+      font-size: 36px;
+      color: #00FF7F;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Token Section */
+    .token {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .token h2 {
+      font-size: 36px;
+      color: #00FF7F;
+      margin-bottom: 20px;
+    }
+
+    .token-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .token-content img {
+      border: 2px solid #00FF7F;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00FF7F, 0 0 20px #00FF7F;
+    }
+
+    .token-content p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    /* Image Section */
+    .images {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 50px 20px;
+      background-color: #000000;
+      border-top: 2px solid #00FF7F;
+      border-bottom: 2px solid #00FF7F;
+    }
+
+    .images img {
+      border: 2px solid #00FF7F;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00FF7F, 0 0 20px #00FF7F;
+    }
+
+    .images img:nth-child(1),
+    .images img:nth-child(3) {
+      width: 200px;
+      height: 200px;
+    }
+
+    .images img:nth-child(2) {
+      width: 250px;
+      height: 250px;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        border-top: 2px solid #00FF7F;
+        position: relative;
+    }
+
+    .footer-logo {
+        width: 24px;
+        height: 24px;
+    }
+
+    .footer-text {
+        font-weight: bold;
+        color: white;
+    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-middle {
+        display: none;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .hero-content p {
+        font-size: 18px;
+      }
+
+      .images {
+        flex-direction: column;
+      }
+
+      .images img:nth-child(1),
+      .images img:nth-child(3) {
+        width: 150px;
+        height: 150px;
+      }
+
+      .image-section img:nth-child(2) {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-left">DogeVanguard</div>
+    <div class="header-middle">
+    
+    </div>
+    <div class="header-right">
+
+      <a href="https://twitter.com/DogeVanguard" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X (Twitter)">      </a>
+     
+        
+
+        <a href="https://dexscreener.com" target="_blank">
+            <img src="images/dex.png" alt="DexScreener">
+          </a>
+
+
+      <p>CA: </p>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>DogeVanguard</h1>
+      <p>The meme coin for crypto rebels.</p>
+    </div>
+  </section>
+
+    <!-- Image Section -->
+    <section class="images">
+        <img src="images/doge-elon.png" alt="Image 1">
+        <img src="images/usa.png" alt="Image 2">
+        <img src="images/elon.png" alt="Image 3">
+      </section>
+    
+  <!-- About Section -->
+  <section class="about">
+    <h2>About DogeVanguard</h2>
+    <p>
+      We are DogeVanguard, the meme coin for crypto rebels. Inspired by Elon Musk’s vision, we believe in exposing and ending government waste. While people struggle with inflation, the government throws billions into foreign aid, pointless studies, and bloated bureaucracies.
+      It’s time to fight back. No more useless USAID programs, reckless spending, or wasted tax dollars. Just memes, freedom, and a decentralized future.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <a href="https://x.com/DogeVanguard" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X (Twitter)" class="footer-logo">
+    </a>
+    <a href="https://dexscreener.com" target="_blank">
+        <img src="images/dex.png" alt="DexScreener" class="footer-logo">
+    </a>
+    <p class="footer-text">CA: </p>
+</footer>
+</body>
+</html>
+
+ 
